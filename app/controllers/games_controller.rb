@@ -14,11 +14,11 @@ class GamesController < ApplicationController
     @letterss = @letters.split
 
     if !(@letterss & @words).any? && english_word?(@word) == true
-      @result = "Congratulations! #{@word} is a valid English word"
+      @result = "Congratulations! #{@word.upcase} is a valid English word"
     elsif @word == ''
       @result = 'Input a word to play'
     elsif english_word?(@word) == false
-      @result = "Sorry but #{@word} does not seem to be a valid English word"
+      @result = "Sorry but #{@word.upcase} does not seem to be a valid English word"
     else
       @result = "Sorry but TEST can\'t be built out of #{@letters.gsub(" ", ", ")}"
     end
